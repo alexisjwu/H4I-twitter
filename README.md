@@ -1,4 +1,4 @@
-# bootcamp-simple-twitter
+# Simple Twitter Project
 
 <p align="center">
   <img width="400" alt="ideal product" src="https://user-images.githubusercontent.com/18134219/101709717-9e748680-3a55-11eb-8bc3-28a8dfa38ff1.png">
