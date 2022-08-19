@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 require('dotenv').config()
 const mongoose = require('mongoose')
 
-const Tweet = require('./models/tweet')
+const Tweet = require('./models/tweet')   // our model
 
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
@@ -19,14 +19,17 @@ app.use(bodyParser.json())
 
 const getTweets = async () => {
   // todo: get all tweets
+  return await Tweet.find({});
 }
 
 const getUserTweets = async username => {
   // todo: get all tweets from a specific user
+  return await Tweet.find({username: username});
 }
 
 const createTweet = async (username, text) => {
   // todo: create a tweet with a username and text
+  return new Tweet({text, username}).save();
 }
 
 const deleteTweet = async id => {
