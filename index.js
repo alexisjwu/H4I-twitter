@@ -17,6 +17,8 @@ mongoose.connect(process.env.DATABASE_URL, {
 app.use(express.static('html'))
 app.use(bodyParser.json())
 
+// for the following functions, reference https://mongoosejs.com/docs/queries.html for calls
+
 const getTweets = async () => {
   // todo: get all tweets
   return await Tweet.find({});
@@ -29,11 +31,17 @@ const getUserTweets = async username => {
 
 const createTweet = async (username, text) => {
   // todo: create a tweet with a username and text
-  return new Tweet({text, username}).save();
+  return new Tweet({
+    text: text, 
+    username: username,
+  }).save();
 }
 
 const deleteTweet = async id => {
   // todo: delete a single tweet, given the id
+  return Tweet.deleteOne({
+    _id: id
+  });
 }
 
 /*
